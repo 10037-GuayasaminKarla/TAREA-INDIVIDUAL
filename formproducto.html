@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Producto</title>
+</head>
+
+<body>
+    <form style="border: 1px black solid;">
+        <h2>Datos Básicos</h2>
+        <br>
+        <div class="form-group">
+            <label for="nombre-producto">Nombre del Producto:</label>
+            <input type="text" class="form-control" id="nombre-producto">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea class="form-control" id="descripcion" rows="4"></textarea>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="foto">Foto:</label>
+            <input type="file" id="foto">
+        </div>
+        <br>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="info-confidencial" onclick="Infconfidencial()">Añadir Información Confidencial
+            </label>
+        </div>
+        <br>
+    </form>
+    <br>
+    <br>
+
+    <section id="formconfidencial" style="display: none;">
+
+    <form style="border: 1px black solid;">
+        <h2>Datos Básicos</h2>
+        <br>
+        <div class="form-group">
+            <label for="precio">Precio:</label>
+            <input type="number" class="form-control" id="precio" step="0.01" min="0">
+            $
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="impuestos">Impuestos:</label>
+            <select class="form-control" id="cantones">
+                <option value="4">4%</option>
+                <option value="5">5%</option>
+                <option value="6">6%</option>
+            </select>
+        </div>
+        <br>
+        <div class="form-group">
+            <label>Opciones:</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="ninguno" value="ninguno">Ninguno
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="transporte" value="transporte"> Transporte Gratuito
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="descuento" value="odescuento"> Descuento 5%
+                </label>
+            </div>
+        </div>
+
+    </form>
+    </section>
+
+    <button type="submit" class="btn btn-primary" id="submit">Guardar Cambios</button>
+    <button type="button" class="btn btn-danger" id="borrar-btn">Borrar los datos introducidos</button>
+
+    <script>
+
+    function Infconfidencial() {
+        var info = document.getElementById("formconfidencial");
+        var check = document.getElementById("info-confidencial");
+
+        if (check.checked==true) {
+            info.style.display = 'block';
+        }
+        else {
+            info.style.display = 'none';
+        }
+    };
+
+</script>
+
+<script type="text/javascript" src="js/vendor/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+
+</body>
+
+</html>
